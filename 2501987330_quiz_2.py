@@ -18,22 +18,21 @@ def f(x):
 def df(x):
   return 51*x**2 + 4*x
 
-i= 0
-def newton_raphson(xsoal, tol=0.031, max=20):
+def newton_raphson(xsoal, i, tol=0.031, max=20):
   x_new= xsoal - (f(xsoal)/df(xsoal))
 
   if (np.abs(f(x_new))<tol):
     print("The root of equation is = ", x_new)
   else:
-    i+1
+    i+=1
     if i>20:
       print("root not found")
       return false
     print("Iteration of ", i,". new root = ", x_new )
-    newton_raphson(x_new)
+    newton_raphson(x_new, i)
 
 
-newton_raphson(4)
+newton_raphson(4, 0)
 
 """Bisection
 f(x) ∶ 12x^3+6x^2+9
